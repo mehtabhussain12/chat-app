@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Login</title>
+</head>
+<body>
+    <div class="flex justify-center items-center min-h-screen bg-gray-100">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
+            <h1 class="text-2xl font-bold text-center mb-6 text-gray-800">Login</h1>
+            <form id="loginForm" class="flex flex-col space-y-4">
+                <label class="font-medium text-gray-700" for="loginEmail">Email</label>
+                <input type="email" placeholder="Enter your email" required id="loginEmail" class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                
+                <label class="font-medium text-gray-700" for="loginPassword">Password</label>
+                <input type="password" placeholder="Enter your password" required id="loginPassword" class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                
+                <button type="submit" id="submitLogin" class="bg-indigo-600 text-white p-3 rounded-md font-semibold hover:bg-indigo-700 transition-colors">Login</button>
+                
+                <a href="../index.html" class="text-center text-sm text-indigo-600 hover:text-indigo-800 font-medium mt-4">Don't have an account? Register here</a>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="../js/login.js"></script>
+</body>
+</html>

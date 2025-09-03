@@ -1,0 +1,2 @@
+import {createUserWithEmailAndPassword , signInWithEmailAndPassword , onAuthStateChanged ,updateProfile , signOut ,} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js"
+export { createUserWithEmailAndPassword , signInWithEmailAndPassword , onAuthStateChanged , updateProfile , signOut };

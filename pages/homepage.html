@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Chat App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-100;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex items-center justify-center p-4 sm:p-6">
+    <div class="flex flex-col md:flex-row w-full max-w-6xl h-[90vh] bg-white rounded-3xl shadow-2xl overflow-hidden">
+        
+        <!-- Left Panel: Conversations List -->
+        <div class="w-full md:w-1/3 border-r border-gray-200 p-4 flex flex-col">
+            <!-- Header -->
+            <div class="flex items-center justify-between pb-4 border-b border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-900">Chats</h2>
+                <button class="text-gray-500 hover:text-gray-900 transition-colors duration-200">
+                    <!-- New Chat Icon -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                </button>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="py-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search..." class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200">
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                </div>
+            </div>
+
+            <!-- Conversation List -->
+            <div class="flex-1 overflow-y-auto space-y-2" id="friendsList">
+
+            </div>
+            
+            <!-- User Profile and Status -->
+            <div class="p-4 border-t border-gray-200 mt-4 flex items-center space-x-3" id="myprofile">
+            <a href="../pages/profile.html">View Profile</a>
+            </div>
+        </div>
+        
+        <!-- Right Panel: Main Chat Window -->
+        <div class="w-full md:w-2/3 flex flex-col p-4">
+            <!-- Chat Header -->
+            <div class="flex items-center space-x-4 pb-4 border-b border-gray-200">
+                <img class="w-12 h-12 rounded-full object-cover" src="https://placehold.co/48x48/60a5fa/ffffff?text=U1" alt="John Doe">
+                <div>
+                    <h3 class="font-bold text-lg text-gray-900">John Doe</h3>
+                    <p class="text-sm text-gray-500 flex items-center">
+                        <span class="w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+                        Online
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Chat Messages -->
+            <div class="flex-1 overflow-y-auto py-4 space-y-4">
+              
+                <div class="flex items-start space-x-3">
+                    <img class="w-8 h-8 rounded-full object-cover flex-shrink-0" src="https://placehold.co/32x32/60a5fa/ffffff?text=U1" alt="John Doe">
+                    <div class="bg-gray-200 p-3 rounded-r-3xl rounded-bl-3xl max-w-sm">
+                        <p class="text-sm text-gray-800">Hey there! How is everything?</p>
+                    </div>
+                </div>
+              
+                <div class="flex justify-end">
+                    <div class="bg-blue-500 text-white p-3 rounded-l-3xl rounded-br-3xl max-w-sm">
+                        <p class="text-sm"></p>
+                    </div>
+                </div>
+                
+               
+                <div class="flex items-start space-x-3">
+                    <img class="w-8 h-8 rounded-full object-cover flex-shrink-0" src="https://placehold.co/32x32/60a5fa/ffffff?text=U1" alt="John Doe">
+                    <div class="bg-gray-200 p-3 rounded-r-3xl rounded-bl-3xl max-w-sm">
+                        <p class="text-sm text-gray-800"></p>
+                    </div>
+                </div>
+                
+    
+                <div class="flex justify-end">
+                    <div class="bg-blue-500 text-white p-3 rounded-l-3xl rounded-br-3xl max-w-sm">
+                        <p class="text-sm"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Message Input Area -->
+            <div class="pt-4 border-t border-gray-200">
+                <div class="flex items-center space-x-3">
+                    <button class="text-gray-500 hover:text-gray-900 transition-colors duration-200">
+                        <!-- Attachment Icon -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L17.5 10.5"></path></svg>
+                    </button>
+                    <textarea class="flex-1 w-full pl-4 pr-12 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-200" placeholder="Type a message..." rows="1"></textarea>
+                    <button class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 -ml-10">
+                        <!-- Send Icon -->
+                        <svg class="w-6 h-6 transform rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l.64-2.561a1 1 0 01.18-.377l.004-.012c.321-.902.13-1.896-.64-3.056l-.587-.879a1 1 0 01.125-1.572l.487-.27a1 1 0 011.135.811c.214 1.258 1.132 2.32 2.923 2.32.748 0 1.402-.218 1.944-.55l.443-.266c.323-.194.55-.421.744-.615a1.002 1.002 0 011.414 0l.278.278a1 1 0 010 1.414l-4.817 4.817a1 1 0 01-1.414 0l-1.414-1.414a1 1 0 010-1.414l3.14-3.14a1 1 0 011.414 0l.707.707a1 1 0 010 1.414l-4.817 4.817a1 1 0 01-1.414 0l-1.414-1.414a1 1 0 010-1.414l3.14-3.14z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../js/homepage.js"></script>
+</body>
+</html>
